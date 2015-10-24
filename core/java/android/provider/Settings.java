@@ -3735,14 +3735,14 @@ public final class Settings {
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
-         * Forces formal text input.  1 to replace emoticon key with enter key.
+         * Forces formal text input.  1 to replace emoticon key with enter key.      
          * @hide
          */
         public static final String FORMAL_TEXT_INPUT = "formal_text_input";
       
         /**
          * Disable dashboard suggestions in settings
-         * @hide
+         * @hide      
          */
         public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
 
@@ -3780,6 +3780,25 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+
+        /**
+         * Whether to wake the screen with the volume keys, the value is boolean.
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
+         * Whether or not volume button music controls should be enabled to seek media tracks
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
+
+        /**
+         * Volume key controls ringtone or media sound stream
+         * @hide
+         */
+        public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM =
+                "volume_keys_control_media_stream";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
