@@ -32,4 +32,9 @@
   <java-symbol type="bool" name="config_enableCpuBoostOnBoot" />
   <java-symbol type="integer" name="onbootboost_duration" />
   <java-symbol type="array" name="onbootboost_param_value" />
+
+  <!-- Unlink notification images -->
+  <java-symbol type="drawable" name="ic_audio_notification_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_alpha" />
 </resources>
