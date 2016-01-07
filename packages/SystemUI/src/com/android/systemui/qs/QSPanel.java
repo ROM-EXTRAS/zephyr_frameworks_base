@@ -58,6 +58,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
     protected final ArrayList<TileRecord> mRecords = new ArrayList<TileRecord>();
     protected final View mBrightnessView;
     protected View mSimSwitcherView = null;
+    protected final ImageView mBrightnessIcon;
     private final H mHandler = new H();
 
     private int mPanelPaddingBottom;
@@ -101,9 +102,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
 
         mBrightnessView = LayoutInflater.from(context).inflate(
                 R.layout.quick_settings_brightness_dialog, this, false);
-        ImageView brightnessIcon = (ImageView) mBrightnessView.findViewById(R.id.brightness_icon);
-        brightnessIcon.setVisibility(View.VISIBLE);
         addView(mBrightnessView);
+
+        mBrightnessIcon = (ImageView) mBrightnessView.findViewById(R.id.brightness_icon);
 
         setupTileLayout();
 
@@ -114,7 +115,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
         updateResources();
 
         mBrightnessController = new BrightnessController(getContext(),
-                brightnessIcon,
+                mBrightnessIcon,
                 (ToggleSlider) findViewById(R.id.brightness_slider));
 
     }
@@ -186,6 +187,14 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
             }
         }
         return mHost.createTile(subPanel);
+    }
+
+    private void setBrightnessIcon() {
+        boolean brightnessIconEnabled = Settings.System.getIntForUser(
+            mContext.getContentResolver(), Settings.System.QS_SHOW_BRIGHTNESS_ICON,
+                0, UserHandle.USER_CURRENT) == 1;
+        mBrightnessIcon.setVisibility(brightnessIconEnabled ? View.VISIBLE : View.GONE);
+        updateResources();
     }
 
     public void setBrightnessMirror(BrightnessMirrorController c) {
@@ -284,6 +293,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback {
                 mBrightnessController.unregisterCallbacks();
             }
         }
+        setBrightnessIcon();
     }
 
     public void refreshAllTiles() {
