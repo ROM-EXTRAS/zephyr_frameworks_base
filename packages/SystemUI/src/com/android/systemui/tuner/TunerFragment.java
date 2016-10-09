@@ -15,6 +15,7 @@
  */
 package com.android.systemui.tuner;
 
+import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.support.v14.preference.PreferenceFragment;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,10 +39,19 @@ public class TunerFragment extends PreferenceFragment {
 
     private static final String TAG = "TunerFragment";
 
+    private static final String STATUS_BAR_ZEPHYR_LOGO = "status_bar_zephyr_logo";
+
+    private SwitchPreference mZephyrLogo;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+	PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
+	mZephyrLogo = (SwitchPreference) findPreference(STATUS_BAR_ZEPHYR_LOGO);
+        mZephyrLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_ZEPHYR_LOGO, 0) == 1));
     }
 
     @Override
@@ -83,4 +94,14 @@ public class TunerFragment extends PreferenceFragment {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+    if  (preference == mZephyrLogo) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_ZEPHYR_LOGO, checked ? 1:0);
+            return true;
+          }
+        return super.onPreferenceTreeClick(preference);
+    }
 }

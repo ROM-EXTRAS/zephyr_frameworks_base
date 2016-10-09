@@ -130,4 +130,8 @@
     <string name="tasklist_memory_usage">"Free • Total memory : <xliff:g id="number">%s</xliff:g> • <xliff:g id="name">%s</xliff:g>"</string>
     <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
     <string name="tm_clear_task">CLEAR</string>
+
+    <!-- Zephyr Logo -->
+    <string name="status_bar_zephyr_logo_title">Zephyr logo</string>
+    <string name="status_bar_zephyr_logo_summary">Enable to show Zephyr logo on the left side of the statusbar</string>
 </resources>
