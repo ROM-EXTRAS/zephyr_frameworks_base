@@ -47,7 +47,10 @@ import android.util.Log;
 public class BatteryLevelTextView extends TextView implements
         BatteryController.BatteryStateChangeCallback, TunerService.Tunable{
 
-    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+    private static final String STATUS_BAR_SHOW_BATTERY_PERCENT =
+            "cmsystem:" + CMSettings.System.STATUS_BAR_SHOW_BATTERY_PERCENT;
+    private static final String STATUS_BAR_BATTERY_STYLE =
+            "cmsystem:" + CMSettings.System.STATUS_BAR_BATTERY_STYLE;
 
     private BatteryController mBatteryController;
     private boolean mShow;
@@ -63,6 +66,8 @@ public class BatteryLevelTextView extends TextView implements
             setBatteryVisibility();
         }
     };
+
+    private boolean mRequestedVisibility;
 
     public BatteryLevelTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -96,10 +101,10 @@ public class BatteryLevelTextView extends TextView implements
     }
 
     public void setBatteryController(BatteryController batteryController) {
-        if(batteryController != null){
-            mBatteryController = batteryController;
-            mBatteryController.addStateChangedCallback(this);
-        }
+        mBatteryController = batteryController;
+        mBatteryController.addStateChangedCallback(this);
+        TunerService.get(getContext()).addTunable(this,
+                STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_BATTERY_STYLE);
     }
 
     @Override
@@ -131,6 +136,32 @@ public class BatteryLevelTextView extends TextView implements
         if (mBatteryController != null) {
             mBatteryController.removeStateChangedCallback(this);
         }
-        TunerService.get(getContext()).removeTunable(this);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case STATUS_BAR_SHOW_BATTERY_PERCENT:
+                mRequestedVisibility = newValue != null && Integer.parseInt(newValue) == 2;
+                setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
+                break;
+            case STATUS_BAR_BATTERY_STYLE:
+                final int value = newValue == null ?
+                        BatteryMeterDrawable.BATTERY_STYLE_PORTRAIT : Integer.parseInt(newValue);
+                switch (value) {
+                    case BatteryMeterDrawable.BATTERY_STYLE_TEXT:
+                        setVisibility(View.VISIBLE);
+                        break;
+                    case BatteryMeterDrawable.BATTERY_STYLE_HIDDEN:
+                        setVisibility(View.GONE);
+                        break;
+                    default:
+                        setVisibility(mRequestedVisibility ? View.VISIBLE : View.GONE);
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
     }
 }
