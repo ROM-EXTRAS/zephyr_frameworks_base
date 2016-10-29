@@ -66,6 +66,11 @@
     <string name="accessibility_quick_settings_nfc_on">NFC on.</string>
     <string name="accessibility_quick_settings_nfc_changed_off">NFC turned off.</string>
     <string name="accessibility_quick_settings_nfc_changed_on">NFC turned on.</string>
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
 
     <!-- Navigation bar Tile -->
     <string name="quick_settings_navigation_bar">Navigation bar</string>
