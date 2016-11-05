@@ -372,8 +372,8 @@ public class VisualizerView extends View implements Palette.PaletteAsyncListener
 
         @Override
         protected void update() {
-        mVisualizerEnabled = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED, 1) != 0;
+        mVisualizerEnabled = Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.LOCKSCREEN_VISUALIZER_ENABLED, 1) != 0;
             checkStateChanged();
             updateViewVisibility();
         }
@@ -382,7 +382,7 @@ public class VisualizerView extends View implements Palette.PaletteAsyncListener
         protected void observe() {
             super.observe();
             getContext().getContentResolver().registerContentObserver(
-                    Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED),
+                    Settings.System.getUriFor(Settings.System.LOCKSCREEN_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_CURRENT);
         }
 
