@@ -4127,6 +4127,12 @@ public final class Settings {
          */
         public static final String SCREENSHOT_TYPE = "screenshot_type";
 
+	/**
+         * Quick Settings number of columns
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
         /**
          * Whether to show Brightness Icon On Brightness Slider
          * @hide
