@@ -44,4 +44,7 @@
 
   <!-- Boost parameters which get passed to QPerformance -->
   <integer-array name="onbootboost_param_value"/>
+
+  <!-- Single handed mode config -->
+  <bool name="single_hand_mode">true</bool>
 </resources>
