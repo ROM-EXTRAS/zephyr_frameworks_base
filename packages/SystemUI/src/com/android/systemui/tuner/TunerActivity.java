@@ -52,15 +52,6 @@ public class TunerActivity extends SettingsDrawerActivity implements
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public boolean onPreferenceStartFragment(PreferenceFragment caller, Preference pref) {
         try {
             Class<?> cls = Class.forName(pref.getFragment());
