@@ -446,8 +446,6 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("usb_tether")) return new UsbTetherTile(this);
         else if (tileSpec.equals("music")) return new MusicTile(this);
         else if (tileSpec.equals("ime")) return new ImeTile(this);
-        else if (tileSpec.equals(NightModeTile.NIGHT_MODE_SPEC))
-            return new NightModeTile(this);
         else if (tileSpec.equals("navigation_bar")) return new NavigationBarTile(this);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
