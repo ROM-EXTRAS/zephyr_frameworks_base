@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar.phone;
 
+import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ContentUris;
@@ -119,7 +120,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
 
     // Task manager
     private boolean mShowTaskManager;
-    private View mTaskManagerButton;
+    protected TaskManagerButton mTaskManagerButton;
+    public boolean mEnabled;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -161,7 +163,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mAlarmStatusCollapsed = findViewById(R.id.alarm_status_collapsed);
         mAlarmStatus = (TextView) findViewById(R.id.alarm_status);
         mAlarmStatus.setOnClickListener(this);
-        mTaskManagerButton = findViewById(R.id.task_manager_button);
+        mTaskManagerButton = (TaskManagerButton) findViewById(R.id.task_manager_button);
+        mTaskManagerButton.setOnClickListener(this);
         mMultiUserSwitch = (MultiUserSwitch) findViewById(R.id.multi_user_switch);
         mMultiUserSwitch.setOnLongClickListener(this);
         mMultiUserAvatar = (ImageView) mMultiUserSwitch.findViewById(R.id.multi_user_avatar);
@@ -172,6 +175,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         // settings), so disable it for this view
         ((RippleDrawable) mSettingsButton.getBackground()).setForceSoftware(true);
         ((RippleDrawable) mExpandIndicator.getBackground()).setForceSoftware(true);
+        ((RippleDrawable) mTaskManagerButton.getBackground()).setForceSoftware(true);
 
         mBackgroundImage = (ImageView) findViewById(R.id.background_image);
 
@@ -226,6 +230,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mSettingsAlpha = new TouchAnimator.Builder()
                 .addFloat(mEdit, "alpha", 0, 1)
                 .addFloat(mMultiUserSwitch, "alpha", 0, 1)
+                .addFloat(mTaskManagerButton, "alpha", 0, 1)
                 .build();
 
         final boolean isRtl = isLayoutRtl();
@@ -320,20 +325,32 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         });
     }
 
-    protected void updateVisibilities() {
+    @Override
+    public void updateVisibilities() {
         updateAlarmVisibilities();
         updateDateTimePosition();
         mEmergencyOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly
                 ? View.VISIBLE : View.INVISIBLE);
         mSettingsButton.setVisibility(View.VISIBLE);
-        if (mTaskManagerButton != null) {
-            mTaskManagerButton.setVisibility(mExpanded && enabletaskmanager() ? View.VISIBLE : View.GONE);
-        }
+        mTaskManagerButton.setVisibility(mExpanded && enabletaskmanager() ? View.VISIBLE : View.GONE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(mExpanded && mMultiUserSwitch.hasMultipleUsers() && !isDemo
                 ? View.VISIBLE : View.INVISIBLE);
         mSettingsButton.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
         mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
+    }
+
+   @Override
+   public void killvisibilities() {
+        if (mMultiUserSwitch != null) {
+        mMultiUserSwitch.setVisibility(View.GONE);
+        }
+        if (mEdit != null) {
+        mEdit.setVisibility(View.GONE);
+        }
+        if (mExpandIndicator != null) {
+        mExpandIndicator.setVisibility(View.GONE);
+        }
     }
 
     private void updateDateTimePosition() {
@@ -392,6 +409,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
             startClockActivity();
         } else if (v == mDate) {
             startDateActivity();
+        } else if (v == mTaskManagerButton) {
+           mQsPanel.setenabled();
         }
     }
 
@@ -399,8 +418,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     public boolean onLongClick(View v) {
            if (v == mSettingsButton) {
             startSettingsLongClickActivity();
-        }
-          else if (v == mClock) {
+        } else if (v == mClock) {
             startClockLongClickActivity();
         } else if (v == mDate) {
             startDateLongClickActivity();
@@ -450,6 +468,18 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.setClassName("com.android.settings",
             "com.android.settings.Settings$UserSettingsActivity");
+        mActivityStarter.startActivity(intent, true /* dismissShade */);
+    }
+
+    public void setTaskManagerEnabled(boolean enabled) {
+        mEnabled = enabled;
+    }
+
+    @Override
+    public void starttmactivity() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setClassName("com.android.settings",
+            "com.android.settings.Settings$RunningServicesActivity");
         mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
