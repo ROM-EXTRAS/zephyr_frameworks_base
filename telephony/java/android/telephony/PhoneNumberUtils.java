@@ -20,7 +20,7 @@ import com.android.i18n.phonenumbers.NumberParseException;
 import com.android.i18n.phonenumbers.PhoneNumberUtil;
 import com.android.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.android.i18n.phonenumbers.Phonenumber.PhoneNumber;
-import com.android.i18n.phonenumbers.ShortNumberInfo;
+import com.android.i18n.phonenumbers.ShortNumberUtil;
 
 import android.content.Context;
 import android.content.Intent;
@@ -1920,11 +1920,11 @@ public class PhoneNumberUtils
 
         // No ecclist system property, so use our own list.
         if (defaultCountryIso != null) {
-            ShortNumberInfo info = ShortNumberInfo.getInstance();
+            ShortNumberUtil util = new ShortNumberUtil();
             if (useExactMatch) {
-                return info.isEmergencyNumber(number, defaultCountryIso);
+                return util.isEmergencyNumber(number, defaultCountryIso);
             } else {
-                return info.connectsToEmergencyNumber(number, defaultCountryIso);
+                return util.connectsToEmergencyNumber(number, defaultCountryIso);
             }
         }
 
