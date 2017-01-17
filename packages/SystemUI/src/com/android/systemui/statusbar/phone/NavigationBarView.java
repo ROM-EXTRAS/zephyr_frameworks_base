@@ -31,6 +31,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.SparseArray;
@@ -44,6 +45,7 @@ import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
+import android.provider.Settings;
 import com.android.systemui.R;
 import com.android.systemui.RecentsComponent;
 import com.android.systemui.stackdivider.Divider;
@@ -225,7 +227,10 @@ public class NavigationBarView extends LinearLayout {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ONE_HANDED_MODE_UI, 0, UserHandle.USER_CURRENT) == 1) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         if (mGestureHelper.onTouchEvent(event)) {
             return true;
         }
@@ -237,7 +242,10 @@ public class NavigationBarView extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        mSlideTouchEvent.handleTouchEvent(event);
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ONE_HANDED_MODE_UI, 0, UserHandle.USER_CURRENT) == 1) {
+            mSlideTouchEvent.handleTouchEvent(event);
+        }
         return mGestureHelper.onInterceptTouchEvent(event);
     }
 
