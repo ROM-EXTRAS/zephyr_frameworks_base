@@ -28,6 +28,7 @@ import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -335,6 +336,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
            if (v == mSettingsButton) {
             startSettingsLongClickActivity();
         }
+   return false;
     }
 
     private void startSettingsActivity() {
