@@ -1193,4 +1193,11 @@
         <item>@drawable/stat_sys_signal_4_3g_default_fully</item>
         <item>@drawable/stat_sys_signal_4_4g_default_fully</item>
     </array>
+
+    <!-- Advanced Location tile mode -->
+    <string-array name="location_mode_entries" translatable="false">
+        <item>@string/quick_settings_location_battery_saving_label</item>
+        <item>@string/quick_settings_location_gps_only_label</item>
+        <item>@string/quick_settings_location_high_accuracy_label</item>
+    </string-array>
 </resources>
