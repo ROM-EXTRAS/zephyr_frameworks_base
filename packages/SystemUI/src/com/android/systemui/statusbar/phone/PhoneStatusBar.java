@@ -593,9 +593,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                   Settings.System.QS_LAYOUT_COLUMNS),
                   false, this, UserHandle.USER_ALL);
            resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.DATA_ACTIVITY_ARROWS),
-                  false, this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW),
                   false, this, UserHandle.USER_ALL);
            resolver.registerContentObserver(Settings.System.getUriFor(
