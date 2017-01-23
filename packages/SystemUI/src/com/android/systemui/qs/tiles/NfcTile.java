@@ -79,11 +79,6 @@ public class NfcTile extends QSTile<QSTile.BooleanState> {
         return mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC);
     }
 
-    @Override
-    public boolean isAvailable() {
-        return mContext.getPackageManager().hasSystemFeature(PackageManager.FEATURE_NFC);
-    }
-
     protected void toggleState() {
         int state = getNfcState();
         switch (state) {
