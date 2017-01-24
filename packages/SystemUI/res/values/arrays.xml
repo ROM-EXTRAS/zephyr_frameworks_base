@@ -25,11 +25,28 @@
     <!-- BatteryMeterView parameters -->
     <array name="batterymeter_color_levels">
         <item>15</item>
-        <item>100</item>
+        <item>25</item>
+	<item>35</item>
+	<item>45</item>	
+	<item>55</item>
+	<item>65</item>
+	<item>75</item>
+	<item>85</item>
+	<item>95</item>
+	<item>100</item>
     </array>
     <array name="batterymeter_color_values">
         <item>@*android:color/battery_saver_mode_color</item>
         <item>#FFFFFFFF</item>
+	<item>#FFFF8888</item>
+	<item>#FFBB9988</item>
+	<item>#FF77AA88</item>
+	<item>#FF33BB88</item>
+	<item>#FF33CC88</item>
+	<item>#FF33DD88</item>
+	<item>#FF33EEAA</item>
+	<item>#FF44EEBB</item>
+	<item>#FF55EEBB</item>
     </array>
     <array name="batterymeter_bolt_points">
         <item>73</item> <item>0</item>
