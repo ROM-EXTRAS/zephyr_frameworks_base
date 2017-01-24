@@ -157,4 +157,6 @@
     <color name="ksh_key_item_color">@color/material_grey_600</color>
     <color name="ksh_key_item_background">@color/material_grey_100</color>
 
+    <!-- External QS tile tint color -->
+    <color name="external_qs_tile_tint_color">@android:color/white</color>
 </resources>
