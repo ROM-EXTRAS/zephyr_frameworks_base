@@ -45,9 +45,6 @@
   <!-- Boost parameters which get passed to QPerformance -->
   <integer-array name="onbootboost_param_value"/>
 
-  <!-- Single handed mode config -->
-  <bool name="single_hand_mode">true</bool>
-
   <!-- Whether notify fingerprint client of successful cancelled authentication -->
   <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 </resources>

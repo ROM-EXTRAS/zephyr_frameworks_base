@@ -4208,12 +4208,6 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
-         * One Handed mode toggle
-         * @hide
-         */
-        public static final String ONE_HANDED_MODE_UI = "one_handed_mode_ui";
-
-        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -9229,8 +9223,6 @@ public final class Settings {
          * @see com.android.server.AlarmManagerService.Constants
          */
         public static final String ALARM_MANAGER_CONSTANTS = "alarm_manager_constants";
-
-        public static final String SINGLE_HAND_MODE = "single_hand_mode";
 
         /**
          * Job scheduler specific settings.
