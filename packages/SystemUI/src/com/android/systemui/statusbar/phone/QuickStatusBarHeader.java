@@ -438,6 +438,7 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
          Intent intent = new Intent(Intent.ACTION_MAIN);
 	 intent.setClassName("com.android.settings",
             "com.android.settings.Settings$ZephyrSettingsActivity");
+	mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
     private void startClockActivity() {
