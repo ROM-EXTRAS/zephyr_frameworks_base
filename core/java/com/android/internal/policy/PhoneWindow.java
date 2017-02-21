@@ -3736,6 +3736,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
         if (mDecor != null) {
             mDecor.updateColorViews(null, false /* animate */);
         }
+	setNavigationBarColor(color);
     }
 
     @Override
