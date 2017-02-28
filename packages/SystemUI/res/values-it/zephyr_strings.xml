@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+     Copyright (C) 2016 Benzo Rom
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Strings for lockscreen shortcut hints -->
+    <string name="left_shortcut_hint">Scorri a destra per %1$s</string>
+    <string name="right_shortcut_hint">Scorri a sinistra per %1$s</string>
+    <string name="lockscreen_message">Tocca un\'icona per riassegnare un collegamento alla schermata di blocco.</string>
+    <string name="lockscreen_default_target">Predefinito</string>
+    <string name="select_application">Seleziona applicazione</string>
+    <string name="lockscreen_choose_action_title">Scegli un\'azione</string>
+    <string name="lockscreen_none_target">Nessuno</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Screenshot parziale</string>
+    <string name="quick_settings_network_adb_enabled_label">Abilitato</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizzazione off</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizzazione on</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
+    <string name="quick_settings_expanded_desktop_off">Normale</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="accessibility_quick_settings_usb_tether_off">Tethering USB off</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Tethering USB acceso</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering USB disattivato</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering USB attivato</string>
+    <string name="quick_settings_usb_tether_label">Thetering USB</string>
+    <string name="quick_settings_music_label">Musica</string>
+    <string name="quick_settings_music_play">Riproduci</string>
+    <string name="quick_settings_music_pause">Pausa</string>
+    <string name="quick_settings_ime_tile_label">Metodo di inserimento</string>
+    <string name="rr_qs_tile">Configurazioni</string>
+    <string name="quick_settings_caffeine_label">Caffeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeina off</string>
+    <string name="quick_settings_heads_up_label">Heads up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>														   
+    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads disattivato.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads attivato.</string>
+    <string name="lte_on">LTE ON </string>
+    <string name="lte_off">LTE OFF</string>
+    <string name="quick_settings_nfc">NFC</string>
+    <string name="quick_settings_nfc_label">NFC</string>
+    <string name="quick_settings_nfc_off">NFC off</string>
+    <string name="quick_settings_screenrecord">Registrazione Schermo</string>
+    <string name="quick_settings_screenrecord_on">Registrazione...</string>
+    <string name="quick_settings_navigation_bar">Barra di navigazione</string>
+    <string name="quick_settings_smartbar">Smart bar</string>
+    <string name="quick_settings_smartbar_off">Smart bar off</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_fling_off">Fling off</string>
+    <string name="quick_settings_appcirclebar_off">App circle bar Off</string>
+    <string name="quick_settings_gesture_anywhere_on">Gesti On</string>
+    <string name="quick_settings_gesture_anywhere_off">Gesti Off</string>
+    <string name="quick_settings_expanded_desktop_off">Normale</string>											  
+    <string name="quick_settings_appsidebar_title">App side bar</string>
+    <string name="quick_settings_appsidebar_on">App side bar On</string>
+
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Barra di navigazione</string>
+    <string name="quick_settings_smartbar">Smart bar</string>
+    <string name="quick_settings_smartbar_off">Smart bar off</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_fling_off">Fling off</string>
+
+    <string name="quick_settings_expanded_desktop_label">Schermo esteso</string>
+    <string name="quick_settings_expanded_desktop">Espandi</string>
+    <string name="quick_settings_expanded_desktop_off">Normale</string>
+
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifica peeking posticipata per 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> • Notifiche peeking posticipate per <xliff:g id="number">%d</xliff:g> minuti.</string>
+
+    <!-- Screenshot action -->
+    <string name="screenshot_abort_title">Nessuna schermata catturata</string>
+    <string name="screenshot_abort_text">Operazione Interrotta</string>
+
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_battery_saving">Segnalazione della posizione: modalità risparmio batteria.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Segnalazione della posizione: modalità solo sensori.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Segnalazione della posizione: modalità alta precisione.</string>
+    <string name="accessibility_quick_settings_location_changed_battery_saving">Segnalazione della posizione cambiato in modalità risparmio batteria.</string>
+    <string name="accessibility_quick_settings_location_changed_gps_only">Segnalazione della posizione cambiato in modalità solo sensori.</string>
+    <string name="accessibility_quick_settings_location_changed_high_accuracy">Segnalazione della cambiato in modalità alta precisione.</string>
+    <string name="quick_settings_location_detail_title">Modalità posizione</string>
+    <string name="quick_settings_location_battery_saving_label">Risparmio della batteria</string>
+    <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
+    <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
+    <string name="quick_settings_location_off_label">Posizione off</string>
+
+    <!-- Task Manager -->
+    <string name="task_manager_title">Gestore Processi</string>
+    <string name="message_switch_fail">Impossibile passare a questo processo, perchè senza interfaccia.</string>
+    <string name="tasklist_killall">Termina Tutto</string>
+    <string name="tasklist_memory_usage">"Totale memoria libera : <xliff:g id="number">%s</xliff:g> • <xliff:g id="name">%s</xliff:g>"</string>
+    <string name="message_keep_one_launcher">Bisognerebbe tenere almeno una home in memoria!</string>
+    <string name="tm_clear_task">CANCELLA</string>
+
+    <!-- Zephyr Logo -->
+    <string name="status_bar_zephyr_logo_title">Logo Zephyr</string>
+    <string name="status_bar_zephyr_logo_summary">Attiva la visualizzazione del logo Zephyr sul lato sinistro della barra di stato</string>
+</resources>
