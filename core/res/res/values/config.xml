@@ -2592,6 +2592,11 @@
     <integer name="flingboost_timeout_param">0</integer>
     <integer-array name="flingboost_param_value"/>
 
+
+    <!-- system boost for MTP file copy -->
+    <bool name="config_enableBoostForMtp">false</bool>
+    <integer-array name="mtpboost_param_value" />
+
     <!-- Whether cpu boost is enabled for horizontal scroll. -->
     <bool name="config_enableCpuBoostForScroller">false</bool>
     <integer name="scrollboost_timeout_param">0</integer>

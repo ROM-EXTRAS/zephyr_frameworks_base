@@ -114,6 +114,7 @@ public final class ObexHelper {
     public static final int OBEX_AUTH_REALM_CHARSET_ISO_8859_1 = 0x01;
 
     public static final int OBEX_AUTH_REALM_CHARSET_ISO_8859_2 = 0x02;
+    public static final int A2DP_SCO_OBEX_MAX_CLIENT_PACKET_SIZE = 0x2000;
 
     public static final int OBEX_AUTH_REALM_CHARSET_ISO_8859_3 = 0x03;
 
